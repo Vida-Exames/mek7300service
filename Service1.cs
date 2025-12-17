@@ -96,8 +96,9 @@ namespace MEK7300service
 
                             string jsonPayload = System.Text.Json.JsonSerializer.Serialize(payload);
                             StringContent httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-
+                            WriteLog($"enviando post com o payload:{jsonPayload} para a url: {webhookUrl}");
                             HttpResponseMessage response = await client.PostAsync(webhookUrl, httpContent);
+                            string responsejson = await response.Content.ReadAsStringAsync();
 
                             if (response.IsSuccessStatusCode && fileName.Length == 17)
                             {
@@ -118,7 +119,7 @@ namespace MEK7300service
                             }
                             else
                             {
-                                WriteLog($"Falha ao enviar dados do arquivo {fileName} ao webhook: {response.StatusCode}");
+                                WriteLog($"Falha ao enviar dados do arquivo {fileName} ao status code {response.StatusCode} message: {responsejson}");
                             }
                         }
                         catch (Exception ex)

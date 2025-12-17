@@ -13,3 +13,21 @@
    ```
 
 #### Verifique a criação das pastas 'gerados' e 'processados'
+
+
+Ajuda para desenvolvedores que forem mexer no projeto
+olhe a pasta [docs](docs), dentro dela tem 2 mocks(arquivos modelos)
+
+[mock_buffer_completo.txt](docs/mock_buffer_completo.txt) -> esse arquivo é o exemplo de como deve ficar os dados
+para quando forem ser enviados para a classe de processar o arquivo, 2 pontos importantens são que no começo do arquivo
+existe um carater para indicar o começo um para indicaro o final 
+   
+STX (Start of Text)
+Código ASCII: 2
+Hex: 0x02
+Unicode: U+0002
+
+ETX (End of Text)
+Código ASCII: 3
+Hex: 0x03
+Unicode: U+0003
